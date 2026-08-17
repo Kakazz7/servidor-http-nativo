@@ -5,10 +5,11 @@ const server = http.createServer((req, res) => {
 
     res.statusCode = 200
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+    console.log(new Date().toISOString())
 
     res.end("Servidor nativo funcionando!");
 })
-
-server.listen(PORTA, () => {
-    console.log(`Servidor funcionando na porta ${PORTA}`)
+1
+server.listen(PORTA, () => {console.log(`Servidor funcionando na porta ${PORTA}`)
 })
+
