@@ -45,3 +45,5 @@ const server = http.createServer((req, res) => {
 server.listen(porta, () => {
     console.log(`Servidor ouvindo na porta ${porta}`)
 });
+
+//Ao retirar o res.end o codigo fica rodando e nao carrega nada
