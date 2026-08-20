@@ -41,6 +41,8 @@ const server = http.createServer((req, res) => {
         return res.end(JSON.stringify({status: "Pagina nao encontrada"}));
     }
 
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    
     res.end(JSON.stringify({data: "Página Inicial"}))
 })
 
