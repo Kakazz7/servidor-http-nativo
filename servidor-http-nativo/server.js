@@ -19,16 +19,27 @@ const server = http.createServer((req, res) => {
             {numero_telefone: "67 99999 9999",
                 endereco: "Rua da Alegria, 99, Centro"}}));
     } 
-   
+    else{
+        res.statusCode = 404
+        return res.end(JSON.stringify({status: "Pagina nao encontrada"}));
+    }
+
     if (req.method == "GET" && req.url == "/produtos") {
         return res.end(JSON.stringify(produtos));
     }
 
-   
-     if (req.method == "GET" && req.url == "/status") {
-        return res.end(JSON.stringify({status: "ok"}))
+    else{
+        res.statusCode = 404
+        return res.end(JSON.stringify({status: "Pagina nao encontrada"}));
     }
 
+     if (req.method == "GET" && req.url == "/status") {
+        return res.end(JSON.stringify({status: "ok"}));
+    }
+    else{
+        res.statusCode = 404
+        return res.end(JSON.stringify({status: "Pagina nao encontrada"}));
+    }
 
     res.end(JSON.stringify({data: "Página Inicial"}))
 })
