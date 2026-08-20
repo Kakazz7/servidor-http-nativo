@@ -1,18 +1,3 @@
-const http = require('node:http')
-const PORTA = 3000
-const server = http.createServer((req, res) => {
-    console.log(`Requisição recebida! ${req.method} ${req.url}`)
-
-    res.statusCode = 200
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-    console.log(new Date().toISOString())
-
-    res.end("Servidor nativo funcionando!");
-})
-1
-server.listen(PORTA, () => {console.log(`Servidor funcionando na porta ${PORTA}`)
-})
-
 import http from 'node:http'
 import { URL } from 'node:url'
 
@@ -34,10 +19,16 @@ const server = http.createServer((req, res) => {
             {numero_telefone: "67 99999 9999",
                 endereco: "Rua da Alegria, 99, Centro"}}));
     } 
-
+   
     if (req.method == "GET" && req.url == "/produtos") {
         return res.end(JSON.stringify(produtos));
     }
+
+   
+     if (req.method == "GET" && req.url == "/status") {
+        return res.end(JSON.stringify({status: "ok"}));
+    }
+
 
     res.end(JSON.stringify({data: "Página Inicial"}))
 })
@@ -46,4 +37,4 @@ server.listen(porta, () => {
     console.log(`Servidor ouvindo na porta ${porta}`)
 });
 
-//Ao retirar o res.end o codigo fica rodando e nao carrega nada
+//Ao retirar o res.end o codigo fica rodando e nao carrega nada.
